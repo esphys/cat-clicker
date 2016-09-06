@@ -5,18 +5,30 @@
     Cat Clicker!
   </title>
   <script>
-    var clickCount = 0;
-    window.onload = function() {
-      var elem = document.getElementById("cat-picture");
-        elem.addEventListener('click', function(){
-          clickCount++;
-          document.getElementById("clicks").innerHTML = clickCount;
-        }, false)
+    var CAT_NAME = ["Tiger", "Misty"];
+    var clickCount = [0, 0];
+    function initCat(i) { // where i is the cat element
+      document.getElementById("cat-picture-"+i).src = "cat-"+i+".jpg";
+      document.getElementById("cat-name-"+i).innerHTML = CAT_NAME[i];
+      document.getElementById("cat-picture-"+i).addEventListener('click', function()
+      {
+        clickCount[i]++;
+        document.getElementById("clicks-"+i).innerHTML = clickCount[i];
+      }, false);
+    }
+  window.onload = function() {
+      for (i=0; i<CAT_NAME.length; i++){
+        initCat(i);
+      }
     }
   </script>
 </head>
 <body>
-  <img id="cat-picture" src="cat-0.jpg" alt="Click The Cat!">
-  <div id="clicks">0</div>
+  <div id="cat-name-0"></div>
+  <img id="cat-picture-0">
+  <div id="clicks-0">0</div>
+  <div id="cat-name-1"></div>
+  <img id="cat-picture-1">
+  <div id="clicks-1">0</div>
 </body>
 </html>
