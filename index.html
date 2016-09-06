@@ -13,6 +13,7 @@
       var catName = document.createElement("div");
       catName.innerHTML = CAT_NAME[i];
       catName.id = "cat-name-"+i;
+      catName.className = "catList";
       document.getElementById("cat-list").appendChild(catName);
       catName.addEventListener('click',
         function()
@@ -40,6 +41,30 @@
     selectCat();
   }
   </script>
+  <style type="text/css">
+    .catList {
+      background-color: #23b6d6;
+      color: #ffffff;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-family: "Verdana";
+      font-weight: bold;
+      font-size: 30px;
+      text-align: center;
+    }
+    .catList:hover {
+      background-color: #18788d;
+    }
+    #cat-list {
+      float: left;
+    }
+    #cat-container {
+      padding-left: 10px;
+      float: left;
+    }
+  </style>
 </head>
 <body>
 <div id="cat-list"></div>
