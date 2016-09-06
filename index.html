@@ -6,15 +6,27 @@
   </title>
   <script>
     var CAT_NAME = ["Tiger", "Misty"];
-    var clickCount = [0, 0];
+    var clickCount = new Array(CAT_NAME.length).fill(0);
     function initCat(i) { // where i is the cat element
+      var catName = document.createElement("div");
+      catName.innerHTML = CAT_NAME[i];
+      catName.id = "cat-name-"+i;
+      var catPic = document.createElement("img");
+      catPic.src = "cat-"+i+".jpg";
+      catPic.id = "cat-picture-"+i;
+      var clickCounter = document.createElement("div");
+      clickCounter.id = "clicks-"+i;
+      clickCounter.innerHTML = 0;
+      document.body.appendChild(catName);
+      document.body.appendChild(catPic);
+      document.body.appendChild(clickCounter);
       document.getElementById("cat-picture-"+i).src = "cat-"+i+".jpg";
-      document.getElementById("cat-name-"+i).innerHTML = CAT_NAME[i];
       document.getElementById("cat-picture-"+i).addEventListener('click', function()
       {
         clickCount[i]++;
         document.getElementById("clicks-"+i).innerHTML = clickCount[i];
       }, false);
+
     }
   window.onload = function() {
       for (i=0; i<CAT_NAME.length; i++){
@@ -24,11 +36,5 @@
   </script>
 </head>
 <body>
-  <div id="cat-name-0"></div>
-  <img id="cat-picture-0">
-  <div id="clicks-0">0</div>
-  <div id="cat-name-1"></div>
-  <img id="cat-picture-1">
-  <div id="clicks-1">0</div>
 </body>
 </html>
