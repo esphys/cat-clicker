@@ -11,21 +11,25 @@
       var catName = document.createElement("div");
       catName.innerHTML = CAT_NAME[i];
       catName.id = "cat-name-"+i;
+
       var catPic = document.createElement("img");
       catPic.src = "cat-"+i+".jpg";
       catPic.id = "cat-picture-"+i;
+
       var clickCounter = document.createElement("div");
       clickCounter.id = "clicks-"+i;
       clickCounter.innerHTML = 0;
+
       document.body.appendChild(catName);
       document.body.appendChild(catPic);
       document.body.appendChild(clickCounter);
       document.getElementById("cat-picture-"+i).src = "cat-"+i+".jpg";
-      document.getElementById("cat-picture-"+i).addEventListener('click', function()
-      {
-        clickCount[i]++;
-        document.getElementById("clicks-"+i).innerHTML = clickCount[i];
-      }, false);
+      document.getElementById("cat-picture-"+i).addEventListener('click',
+        function()
+        {
+          clickCount[i]++;
+          document.getElementById("clicks-"+i).innerHTML = clickCount[i];
+        }, false);
 
     }
   window.onload = function() {
