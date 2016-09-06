@@ -5,40 +5,48 @@
     Cat Clicker!
   </title>
   <script>
-    var CAT_NAME = ["Tiger", "Misty"];
+    var CAT_NAME = ["Tiger", "Misty", "Milo & Otis"];
     var clickCount = new Array(CAT_NAME.length).fill(0);
-    function initCat(i) { // where i is the cat element
+    var activeCat = 0;
+    function initCatList(i)
+    {
       var catName = document.createElement("div");
       catName.innerHTML = CAT_NAME[i];
       catName.id = "cat-name-"+i;
-
-      var catPic = document.createElement("img");
-      catPic.src = "cat-"+i+".jpg";
-      catPic.id = "cat-picture-"+i;
-
-      var clickCounter = document.createElement("div");
-      clickCounter.id = "clicks-"+i;
-      clickCounter.innerHTML = 0;
-
-      document.body.appendChild(catName);
-      document.body.appendChild(catPic);
-      document.body.appendChild(clickCounter);
-      document.getElementById("cat-picture-"+i).src = "cat-"+i+".jpg";
-      document.getElementById("cat-picture-"+i).addEventListener('click',
+      document.getElementById("cat-list").appendChild(catName);
+      catName.addEventListener('click',
         function()
         {
-          clickCount[i]++;
-          document.getElementById("clicks-"+i).innerHTML = clickCount[i];
+          activeCat = i;
+          selectCat();
         }, false);
-
+    }
+    function selectCat()
+    {
+      document.getElementById("cat-name").innerHTML = CAT_NAME[activeCat];
+      document.getElementById("cat-picture").src = "cat-"+activeCat+".jpg";
+      document.getElementById("count").innerHTML = clickCount[activeCat];
     }
   window.onload = function() {
-      for (i=0; i<CAT_NAME.length; i++){
-        initCat(i);
-      }
+    document.getElementById("cat-picture").addEventListener('click',
+      function()
+      {
+        clickCount[activeCat]++;
+        document.getElementById("count").innerHTML = clickCount[activeCat];
+      }, false);
+    for (i=0; i<CAT_NAME.length; i++){
+      initCatList(i);
     }
+    selectCat();
+  }
   </script>
 </head>
 <body>
+<div id="cat-list"></div>
+<div id="cat-container">
+  <div id="cat-name"></div>
+  <img id="cat-picture">
+  <div id="count"></div>
+</div>
 </body>
 </html>
