@@ -42,7 +42,13 @@
   }
   </script>
   <style type="text/css">
+    * {
+      font-family: "Verdana";
+      font-weight: bold;
+      font-size: 30px;
+    }
     .catList {
+
       background-color: #23b6d6;
       color: #ffffff;
       padding-right: 20px;
@@ -57,21 +63,36 @@
     .catList:hover {
       background-color: #18788d;
     }
+    #cat-name {
+      padding-bottom: 20px;
+    }
     #cat-list {
       float: left;
+      margin: 10px;
     }
     #cat-container {
-      padding-left: 10px;
+      padding: 20px;
+      margin: 10px;
+      float: left;
+      background-color: #23b6d6;
+    }
+    #score {
+      padding-top: 20px;
+    }
+    #points {
       float: left;
     }
   </style>
 </head>
 <body>
-<div id="cat-list"></div>
-<div id="cat-container">
-  <div id="cat-name"></div>
-  <img id="cat-picture">
-  <div id="count"></div>
-</div>
+  <div id="cat-list"></div>
+  <div id="cat-container">
+    <div id="cat-name"></div>
+    <img id="cat-picture">
+    <div id="score">
+      <div id="points">Points:</div>
+      <div id="count"></div>
+    </div>
+  </div>
 </body>
 </html>
